@@ -1,0 +1,191 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Pizza or Not Pizza? | Kaggle</title>
+  <meta charset="utf-8" />
+    <meta name="robots" content="index, follow" />
+  <meta name="description" content="Binary image classification" />
+    <meta name="keywords" content="food,image,classification,computer vision,binary classification" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+  <meta name="theme-color" content="#008ABC" />
+  <script nonce="2vsqxgRLaWuhc54EHAehjQ==" type="text/javascript">
+    window["pageRequestStartTime"] = 1731565718611;
+    window["pageRequestEndTime"] = 1731565718703;
+    window["initialPageLoadStartTime"] = new Date().getTime();
+  </script>
+  <script nonce="2vsqxgRLaWuhc54EHAehjQ==" id="gsi-client" src="https://accounts.google.com/gsi/client" async defer></script>
+  <script nonce="2vsqxgRLaWuhc54EHAehjQ==">window.KAGGLE_JUPYTERLAB_PATH = "/static/assets/jupyterlab-v4/jupyterlab-index-ec9b6a077f84e990cfc4.html";</script>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="anonymous" /><link rel="preconnect" href="https://stats.g.doubleclick.net" /><link rel="preconnect" href="https://storage.googleapis.com" /><link rel="preconnect" href="https://apis.google.com" />
+  <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link rel="manifest" href="/static/json/manifest.json" crossorigin="use-credentials">
+
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,400i,500,500i,600,600i,700,700i&display=swap"
+    rel="preload" as="style" />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Symbols:FILL@0..1&display=block"
+    rel="preload" as="style" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,400i,500,500i,600,600i,700,700i&display=swap"
+    rel="stylesheet" media="print" id="async-google-font-1" />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Symbols:FILL@0..1&display=block"
+    rel="stylesheet" media="print" id="async-google-font-2" />
+  <script nonce="2vsqxgRLaWuhc54EHAehjQ==" type="text/javascript">
+    const styleSheetIds = ["async-google-font-1", "async-google-font-2"];
+    styleSheetIds.forEach(function (id) {
+      document.getElementById(id).addEventListener("load", function() {
+        this.media = "all";
+      });
+    });
+  </script>
+
+
+    <link rel="canonical" href="https://www.kaggle.com/datasets/carlosrunner/pizza-not-pizza" />
+    <link rel="stylesheet" type="text/css" href="/static/assets/vendor.css?v=dne" />
+    <link rel="stylesheet" type="text/css" href="/static/assets/app.css?v=5bf3c9f45d06b890b0a5" />
+
+  
+    
+ 
+      <script nonce="2vsqxgRLaWuhc54EHAehjQ==">
+        try{(function(a,s,y,n,c,h,i,d,e){d=s.createElement("style");
+        d.appendChild(s.createTextNode(""));s.head.appendChild(d);d=d.sheet;
+        y=y.map(x => d.insertRule(x + "{ opacity: 0 !important }"));
+        h.start=1*new Date;h.end=i=function(){y.forEach(x => x<d.cssRules.length ? d.deleteRule(x) : {})};
+        (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+        })(window,document,['.site-header-react__nav'],'dataLayer',2000,{'GTM-52LNT9S':true});}catch(ex){}
+    </script>
+    <script nonce="2vsqxgRLaWuhc54EHAehjQ==">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-T7QHS60L4Q', {
+            'optimize_id': 'GTM-52LNT9S',
+            'displayFeaturesTask': null,
+            'send_page_view': false,
+            'content_group1': 'Datasets'
+        });
+    </script>
+    <script nonce="2vsqxgRLaWuhc54EHAehjQ==" async src="https://www.googletagmanager.com/gtag/js?id=G-T7QHS60L4Q"></script>
+
+  
+    
+    <meta property="og:url" content="https://www.kaggle.com/datasets/carlosrunner/pizza-not-pizza" />
+    <meta property="og:title" content="Pizza or Not Pizza?" />
+    <meta property="og:description" content="Binary image classification" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://storage.googleapis.com/kaggle-datasets-images/2296957/3863171/7be054fab196beabd5b0b4a462c31c21/dataset-card.jpg?t=2022-06-26-02-08-07" />
+    <meta property="fb:app_id" content="2665027677054710" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@kaggledatasets" />
+
+
+  <meta name="twitter:site" content="@Kaggle" /> 
+  
+    
+            <script nonce="2vsqxgRLaWuhc54EHAehjQ==" type="application/ld+json">{"@context":"http://schema.org/","@type":"Dataset","name":"Pizza or Not Pizza?","description":"Who doesn't like pizza? This dataset contains about 1000 images of pizza and 1000 images of dishes other than pizza. It can be used for a simple binary image classification task.\n\nAll images were rescaled to have a maximum side length of 512 pixels. \n\nThis is a subset of the Food-101 dataset. Information about the original dataset can be found in the following paper: \nBossard, Lukas, Matthieu Guillaumin, and Luc Van Gool. \"Food-101 – Mining Discriminative Components with Random Forests.\" In *European conference on computer vision*, pp. 446-461. Springer, Cham, 2014.\n\nThe original dataset can be found in the following locations:\n- https://data.vision.ee.ethz.ch/cvl/datasets_extra/food-101/\n- https://www.kaggle.com/datasets/dansbecker/food-101\n- https://paperswithcode.com/dataset/food-101\n- https://www.tensorflow.org/datasets/catalog/food101\n\nNumber of instances in each class:\nPizza: 983\nNot Pizza: 983\n\n##Acknowledgements\n\nThe Food-101 data set consists of images from Foodspotting [1] which are not property of the Federal Institute of Technology Zurich (ETHZ). Any use beyond scientific fair use must be negociated with the respective picture owners according to the Foodspotting terms of use [2].\n\n[1] http://www.foodspotting.com/\n[2] http://www.foodspotting.com/terms/","url":"https://www.kaggle.com/carlosrunner/pizza-not-pizza","version":1,"keywords":["subject, health and fitness, food","data type, image","task, classification","technique, computer vision","task, binary-classification"],"license":{"@type":"CreativeWork","name":"Other (specified in description)","url":""},"identifier":["2296957"],"includedInDataCatalog":{"@type":"DataCatalog","name":"Kaggle","url":"https://www.kaggle.com"},"creator":{"@type":"Person","name":"CarlosRunner","url":"https://www.kaggle.com/carlosrunner","image":"https://storage.googleapis.com/kaggle-avatars/thumbnails/10478948-kg.JPG?t=2023-11-24-15-04-39"},"distribution":[{"@type":"DataDownload","requiresSubscription":true,"encodingFormat":"zip","fileFormat":"zip","contentUrl":"https://www.kaggle.com/datasets/carlosrunner/pizza-not-pizza/download?datasetVersionNumber=1","contentSize":"105478742 bytes"}],"commentCount":1,"dateModified":"2022-06-26T01:33:59.873Z","discussionUrl":"https://www.kaggle.com/carlosrunner/pizza-not-pizza/discussion","alternateName":"Binary image classification","isAccessibleForFree":true,"thumbnailUrl":"https://storage.googleapis.com/kaggle-datasets-images/2296957/3863171/7be054fab196beabd5b0b4a462c31c21/dataset-card.jpg?t=2022-06-26-02-08-07","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"http://schema.org/CommentAction","userInteractionCount":1},{"@type":"InteractionCounter","interactionType":"http://schema.org/DownloadAction","userInteractionCount":5629},{"@type":"InteractionCounter","interactionType":"http://schema.org/ViewAction","userInteractionCount":39153},{"@type":"InteractionCounter","interactionType":"http://schema.org/LikeAction","userInteractionCount":77}]}</script>
+        
+
+  
+    
+
+  
+    
+
+
+    <script nonce="2vsqxgRLaWuhc54EHAehjQ==">window['useKaggleAnalytics'] = true;</script>
+
+  <script id="gapi-target" nonce="2vsqxgRLaWuhc54EHAehjQ==" src="https://apis.google.com/js/api.js" defer
+    async></script>
+  <script nonce="2vsqxgRLaWuhc54EHAehjQ==" src="/static/assets/runtime.js?v=8b4483ec7c61638221b9"></script>
+  <script nonce="2vsqxgRLaWuhc54EHAehjQ==" src="/static/assets/vendor.js?v=ee55ec363535d2d4d535"></script>
+  <script nonce="2vsqxgRLaWuhc54EHAehjQ==" src="/static/assets/app.js?v=31516fe5939bfed6816c"></script>
+    <script nonce="2vsqxgRLaWuhc54EHAehjQ==" type="text/javascript">
+      window.kaggleStackdriverConfig = {
+        key: 'AIzaSyA4eNqUdRRskJsCZWVz-qL655Xa5JEMreE',
+        projectId: 'kaggle-161607',
+        service: 'web-fe',
+        version: 'ci',
+        userId: '12904717'
+      }
+    </script>
+</head>
+<body>
+<main>
+    
+
+
+
+
+
+<div id="site-container"></div>
+
+<div id="site-body" class="hide">
+    
+
+
+<script nonce="2vsqxgRLaWuhc54EHAehjQ==" type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+    preferredFont: "TeX",
+    availableFonts: ["STIX", "TeX"],
+    linebreaks: {
+    automatic: true
+    },
+    EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+    inlineMath: [["\\(", "\\)"], ["\\\\(", "\\\\)"]],
+    displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|dno"
+    },
+    TeX: {
+    noUndefined: {
+    attributes: {
+    mathcolor: "red",
+    mathbackground: "#FFEEEE",
+    mathsize: "90%"
+    }
+    }
+    },
+    Macros: {
+    href: "{}"
+    },
+    skipStartupTypeset: true,
+    messageStyle: "none",
+    extensions: ["Safe.js"],
+    });
+</script>
+<script type="text/javascript" nonce="2vsqxgRLaWuhc54EHAehjQ==">
+  window.addEventListener("DOMContentLoaded", () => {
+    const head = document.getElementsByTagName("head")[0];
+    const lib = document.createElement("script");
+    lib.type = "text/javascript";
+    // Always use the production asset in local dev, which is served from GCS. We tried to proxy and / or serve this
+    // in a better way in localhost, but it didn't work out. See b/328073416#comment8 for details.
+    const forceProdHost = window.location.hostname === "localhost";
+    lib.src = `${forceProdHost ? "https://www.kaggle.com" : ""}/static/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML`;
+    head.appendChild(lib);
+  });
+</script>
+
+
+
+
+
+
+</div>
+
+
+
+    <!-- Cheers, web-6479f5545-5lg66p. -->
+
+  </main>
+</body>
+
+</html>
